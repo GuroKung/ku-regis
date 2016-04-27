@@ -1,2 +1,3 @@
 # KU - Regis
-Online course enrollment, part of HCI course to create an interaction website
+_This project is part of HCI course_  
+Online course enrollment to create an Interactive website
