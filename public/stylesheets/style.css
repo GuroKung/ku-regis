@@ -1,5 +1,5 @@
 body {
-  //padding: 50px;
+  background-color: rgb(241,241,241);
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -7,11 +7,11 @@ a {
   color: #00B7FF;
 }
 
-.home-bg{
+.login-bg{
   width: 100%;
-  height: 650px;
+  height: 625px;
   padding: 5%;
-  margin-top: -20px;
+  margin-top: -21px;
   background: url(../images/home_pic.png) no-repeat;
   opacity: 0.7;
   -moz-box-shadow: 10px 10px 50px #ccc;
@@ -39,7 +39,6 @@ a {
 }
 
 .login-container {
-    //margin: 5% auto;
     padding-left: 25%;
     padding-right: 25%;
     text-align: center;
@@ -47,4 +46,9 @@ a {
 
 .top-bot-5{
   margin: 5% 0px;
+}
+
+.profile-pic{
+  width: 79px;
+  margin-bottom: 7px;
 }

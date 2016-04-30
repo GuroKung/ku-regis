@@ -21,11 +21,17 @@
   <!-- router -->
   <script type="text/javascript" src="javascripts/route/route.js"></script>
 
+  <script type="text/javascript">
+  $(document).ready(function () {
+    $('body').tooltip({ selector: '[data-toggle=tooltip]' })
+  })
+  </script>
+
   <nav class="navbar navbar-default">
     <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">KU - Regis</a>
+        <a class="navbar-brand" href="#/login">KU - Regis</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -46,38 +52,38 @@
         </ul>
 
         <!-- <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Link</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-            </ul>
-          </li>
-        </ul> -->
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="#">Separated link</a></li>
+      </ul>
+    </li>
+  </ul> -->
+</div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
+</nav>
 
-  <!-- render view page -->
-  <ui-view></ui-view>
+<!-- render view page -->
+<ui-view></ui-view>
 
-  <footer class="footer">
-    <div class="row">
-      <div class="col-md-6">
-        <p>
-          Created by Jiratchaya Intaragumaheng
-        </p>
-      </div>
-      <div class="col-md-6">
-        Copyright 2016
-        <span class="glyphicon glyphicon-copyright-mark"></span>
-        GuroKung
-      </div>
+<footer class="footer">
+  <div class="row">
+    <div class="col-md-6">
+      <p>
+        Created by Jiratchaya Intaragumaheng
+      </p>
     </div>
-  </footer>
+    <div class="col-md-6">
+      Copyright 2016
+      <span class="glyphicon glyphicon-copyright-mark"></span>
+      GuroKung
+    </div>
+  </div>
+</footer>
 </body>
 </html>
