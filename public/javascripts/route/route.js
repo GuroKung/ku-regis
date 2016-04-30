@@ -22,5 +22,17 @@
         controller: 'LoginController',
         controllerAs: 'loginCtrl'
       })
+      .state('courses', {
+        url: 'courses',
+        templateUrl: 'templates/courses.tmpl',
+        controller: 'CoursesController',
+        controllerAs: 'coursesCtrl'
+      })
+      .state('enroll', {
+        url: '/enroll',
+        templateUrl: 'templates/enroll.tmpl',
+        controller: 'EnrollController',
+        controllerAs: 'enrollCtrl'
+      })
   }
 })()
