@@ -1,3 +1,23 @@
-<p>
-  This is view course
-</p>
+<div class="container">
+  <div class="row">
+    <form  role="search">
+      <div class="row form-group col-md-4  col-md-offset-2 ">
+        <input type="text" class="form-control" placeholder="Search by course ID" ng-model="searchKey">
+      </div> &nbsp;
+      <button class="btn btn-default" type="button" name="button" ng-click="searchKey = ''">Clear</button>
+    </form>
+  </div>
+<div class="row">
+  <div class="panel panel-default col-md-4 course-box" ng-if="coursesCtrl.course_list.length > 0" ng-repeat="course in coursesCtrl.course_list | filter:searchKey">
+  <div class="panel-body">
+    <h4>{{course.id}}</h4>
+    <b>{{course.name.en}}</b> <br>
+    <b>{{course.name.th}}</b>
+  </div>
+  <div class="text-center">
+    <button class="btn btn-primary btn-block info-button" type="button" name="button">View Info</button>
+  </div>
+</div>
+
+</div>
+</div>

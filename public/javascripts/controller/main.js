@@ -23,6 +23,21 @@ angular.module('ku-regis', ['ui.router'])
     }
   })
 
+  .controller('CoursesController', function ($http) {
+    var self = this
+    self.course_list = []
+
+    $http.get('https://whsatku.github.io/skecourses/list.json')
+      .success(function (response) {
+        console.log(response)
+        self.course_list = response
+      })
+      .error(function (response) {
+        console.log('error: cannot get cobined course json file')
+      })
+
+  })
+
   .service('Auth', function () {
     var self = this
 
@@ -30,5 +45,4 @@ angular.module('ku-regis', ['ui.router'])
       email: '',
       pwd: ''
     }
-
   })
