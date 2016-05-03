@@ -7,7 +7,7 @@
   config.$inject = ['$stateProvider', '$urlRouterProvider']
 
   function config ($stateProvider, $urlRouterProvider) {
-    // $urlRouterProvider.when('', '/login')
+    $urlRouterProvider.when('', '/home')
     // $urlRouterProvider.otherwise('/404')
     $stateProvider
       .state('home', {

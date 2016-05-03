@@ -1,11 +1,15 @@
 /*global angular */
-angular.module('ku-regis', ['ui.router'])
-  .controller('HomePageController', function () {
+angular.module('ku-regis', ['ui.router', 'ngCookies'])
+  .controller('HomePageController', function ($state, Auth) {
     var self = this
+
+    if (!Auth.isLogin) {
+      $state.go('login', {}, {reload: true})
+    }
 
     self.age = 21
   })
-  .controller('LoginController', function ($state) {
+  .controller('LoginController', function ($state, Auth) {
     var self = this
 
     self.data = {
@@ -19,6 +23,7 @@ angular.module('ku-regis', ['ui.router'])
         pwd: self.data.pwd
       }
       console.log(data)
+      Auth.login(self.data.email, self.data.pwd)
       $state.go('home', {}, {reload: true})
     }
   })
@@ -45,12 +50,12 @@ angular.module('ku-regis', ['ui.router'])
       $location.hash('top')
       $anchorScroll()
     }
-
   })
 
   .controller('EnrollController', function ($http) {
     var self = this
     self.course_list = {}
+    self.enroll = []
 
     $http.get('https://whsatku.github.io/skecourses/list.json')
       .success(function (response) {
@@ -60,7 +65,6 @@ angular.module('ku-regis', ['ui.router'])
       .error(function (response) {
         console.log('error: cannot get list course json file')
       })
-
   })
 
   .controller('InfoController', function ($http, $state, $stateParams) {
@@ -77,14 +81,33 @@ angular.module('ku-regis', ['ui.router'])
       .error(function (response) {
         console.log('error: cannot get course info json file')
       })
-
   })
 
-  .service('Auth', function () {
+  .service('Auth', function ($cookieStore) {
     var self = this
 
     self.user = {
       email: '',
       pwd: ''
     }
+
+    self.isLogin = function () {
+      if ($cookieStore.get('token')) return true
+      return false
+    }
+
+    self.login = function (email, pwd) {
+      self.user.email = email
+      self.user.pwd = pwd
+      $cookieStore.put('token', 'ABCEDFCLIJKLMNOPQRETUVWXYZ')
+    }
+
+    self.logout = function () {
+      self.user = {
+        email: '',
+        pwd: ''
+      }
+      $cookieStore.remove('token')
+    }
+
   })
