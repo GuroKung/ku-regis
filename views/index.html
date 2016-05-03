@@ -28,7 +28,7 @@
   })
   </script>
 
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default" ng-controller="NavbarController as navCtrl">
     <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -52,39 +52,40 @@
           </li>
         </ul>
 
-        <!-- <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-        <li><a href="#">Action</a></li>
-        <li><a href="#">Another action</a></li>
-        <li><a href="#">Something else here</a></li>
-        <li role="separator" class="divider"></li>
-        <li><a href="#">Separated link</a></li>
-      </ul>
-    </li>
-  </ul> -->
-</div><!-- /.navbar-collapse -->
-</div><!-- /.container-fluid -->
-</nav>
+        <ul class="nav navbar-nav navbar-right" ng-if="navCtrl.isLogin">
+          <li><a href="#"> <span class="glyphicon glyphicon-user"></span>
+            Login as Jiratchaya Intaragumhaeng</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <span class="glyphicon glyphicon-cog"></span> <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">User Profile</a></li>
+              <li><a href="#">Settings</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#" ng-click="navCtrl.logout()">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
 
-<!-- render view page -->
-<ui-view></ui-view>
+  <!-- render view page -->
+  <ui-view></ui-view>
 
-<footer class="footer">
-  <div class="row">
-    <div class="col-md-6">
-      <p>
-        Created by Jiratchaya Intaragumaheng
-      </p>
+  <footer class="footer">
+    <div class="row">
+      <div class="col-md-6">
+        <p>
+          Created by Jiratchaya Intaragumaheng
+        </p>
+      </div>
+      <div class="col-md-6">
+        Copyright 2016
+        <span class="glyphicon glyphicon-copyright-mark"></span>
+        GuroKung
+      </div>
     </div>
-    <div class="col-md-6">
-      Copyright 2016
-      <span class="glyphicon glyphicon-copyright-mark"></span>
-      GuroKung
-    </div>
-  </div>
-</footer>
+  </footer>
 </body>
 </html>

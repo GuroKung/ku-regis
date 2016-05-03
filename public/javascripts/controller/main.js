@@ -3,12 +3,22 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
   .controller('HomePageController', function ($state, Auth) {
     var self = this
 
-    if (!Auth.isLogin) {
+    if (!Auth.isLogin()) {
       $state.go('login', {}, {reload: true})
     }
-
-    self.age = 21
   })
+
+  .controller('NavbarController', function ($state, Auth) {
+    var self = this
+
+    self.isLogin = Auth.isLogin()
+
+    self.logout = function () {
+      Auth.logout()
+      $state.transitionTo('login')
+    }
+  })
+
   .controller('LoginController', function ($state, Auth) {
     var self = this
 
@@ -83,7 +93,7 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
       })
   })
 
-  .service('Auth', function ($cookieStore) {
+  .service('Auth', function ($cookies) {
     var self = this
 
     self.user = {
@@ -92,14 +102,14 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
     }
 
     self.isLogin = function () {
-      if ($cookieStore.get('token')) return true
+      if ($cookies.get('token') != null) return true
       return false
     }
 
     self.login = function (email, pwd) {
       self.user.email = email
       self.user.pwd = pwd
-      $cookieStore.put('token', 'ABCEDFCLIJKLMNOPQRETUVWXYZ')
+      $cookies.put('token', 'ABCEDFCLIJKLMNOPQRETUVWXYZ')
     }
 
     self.logout = function () {
@@ -107,7 +117,6 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
         email: '',
         pwd: ''
       }
-      $cookieStore.remove('token')
+      $cookies.remove('token')
     }
-
   })
