@@ -11,7 +11,10 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
   .controller('NavbarController', function ($state, Auth) {
     var self = this
 
-    self.isLogin = Auth.isLogin()
+    self.isLogin = function () {
+      if ($state.$current.name === 'login') return true
+      return false
+    }
 
     self.logout = function () {
       Auth.logout()
@@ -21,7 +24,6 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
 
   .controller('LoginController', function ($state, Auth) {
     var self = this
-
     self.data = {
       email: '',
       pwd: ''
@@ -40,7 +42,7 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
 
   .controller('CoursesController', function ($http, $state, $location, $anchorScroll) {
     var self = this
-    self.course_list = {}
+    self.course_list = []
 
     $http.get('https://whsatku.github.io/skecourses/list.json')
       .success(function (response) {
@@ -64,7 +66,7 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
 
   .controller('EnrollController', function ($http) {
     var self = this
-    self.course_list = {}
+    self.course_list = []
     self.enroll = []
 
     $http.get('https://whsatku.github.io/skecourses/list.json')
