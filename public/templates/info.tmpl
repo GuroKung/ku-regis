@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="panel panel-default">
+  <div class="panel-body">
+    <legend><h2>{{infoCtrl.course_id}}</h2></legend>
+    <h3>Name</h3>
+    <p>
+      {{infoCtrl.course_info.name.en}}
+    </p>
+    <p>
+      {{infoCtrl.course_info.name.th}}
+    </p>
+    <h3>Credit</h3>
+    <p>
+      {{infoCtrl.course_info.credit.total}}({{infoCtrl.course_info.credit.lecture}}-{{infoCtrl.course_info.credit.lab}}-{{infoCtrl.course_info.credit.self}})
+    </p>
+    <h3>Description</h3>
+    <p>
+      {{infoCtrl.course_info.description.en}}
+    </p>
+    <p>
+      {{infoCtrl.course_info.description.th}}
+    </p>
+  </div>
+  </div>
+  <button class="btn btn-primary back-button" ui-sref="courses" type="button">
+    <span class="glyphicon glyphicon-arrow-left"/> Back</button>
+</div>

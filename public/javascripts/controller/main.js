@@ -23,7 +23,7 @@ angular.module('ku-regis', ['ui.router'])
     }
   })
 
-  .controller('CoursesController', function ($http) {
+  .controller('CoursesController', function ($http, $state) {
     var self = this
     self.course_list = []
 
@@ -33,7 +33,33 @@ angular.module('ku-regis', ['ui.router'])
         self.course_list = response
       })
       .error(function (response) {
-        console.log('error: cannot get cobined course json file')
+        console.log('error: cannot get list course json file')
+      })
+
+    self.viewInfo = function (course_id) {
+      $state.transitionTo('info', {course_id: course_id})
+    }
+
+  })
+
+  .controller('EnrollController', function () {
+    var self = this
+
+  })
+
+  .controller('InfoController', function ($http, $state, $stateParams) {
+    var self = this
+
+    self.course_id = $stateParams.course_id
+    self.course_info = {}
+
+    $http.get('https://whsatku.github.io/skecourses/' + self.course_id + '.json')
+      .success(function (response) {
+        console.log(response)
+        self.course_info = response
+      })
+      .error(function (response) {
+        console.log('error: cannot get course info json file')
       })
 
   })

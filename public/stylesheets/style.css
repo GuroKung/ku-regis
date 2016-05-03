@@ -121,10 +121,16 @@ a {
   margin: 10px;
   width: 31%;
   height: 200px;
+  opacity: 0.8;
   background: url(../images/course.jpg) no-repeat;
   color: black;
 }
 
 .info-button{
   bottom: 0;
+}
+
+.back-button{
+  margin-top: 10px;
+  margin-bottom: 3%;
 }

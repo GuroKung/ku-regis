@@ -34,5 +34,11 @@
         controller: 'EnrollController',
         controllerAs: 'enrollCtrl'
       })
+      .state('info', {
+        url: '/courses/:course_id',
+        templateUrl: 'templates/info.tmpl',
+        controller: 'InfoController',
+        controllerAs: 'infoCtrl'
+      })
   }
 })()
