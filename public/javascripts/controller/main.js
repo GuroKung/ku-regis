@@ -23,9 +23,9 @@ angular.module('ku-regis', ['ui.router'])
     }
   })
 
-  .controller('CoursesController', function ($http, $state) {
+  .controller('CoursesController', function ($http, $state, $location, $anchorScroll) {
     var self = this
-    self.course_list = []
+    self.course_list = {}
 
     $http.get('https://whsatku.github.io/skecourses/list.json')
       .success(function (response) {
@@ -40,10 +40,26 @@ angular.module('ku-regis', ['ui.router'])
       $state.transitionTo('info', {course_id: course_id})
     }
 
+    self.toTop = function () {
+      console.log('to Top')
+      $location.hash('top')
+      $anchorScroll()
+    }
+
   })
 
-  .controller('EnrollController', function () {
+  .controller('EnrollController', function ($http) {
     var self = this
+    self.course_list = {}
+
+    $http.get('https://whsatku.github.io/skecourses/list.json')
+      .success(function (response) {
+        console.log(response)
+        self.course_list = response
+      })
+      .error(function (response) {
+        console.log('error: cannot get list course json file')
+      })
 
   })
 
