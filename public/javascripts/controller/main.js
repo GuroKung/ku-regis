@@ -25,18 +25,20 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
   .controller('LoginController', function ($state, Auth) {
     var self = this
     self.data = {
-      email: '',
+      username: '',
       pwd: ''
     }
 
     self.login = function () {
-      var data = {
-        email: self.data.email,
-        pwd: self.data.pwd
+      if (self.data.username === 'b5610546702') {
+        var data = {
+          username: self.data.username,
+          pwd: self.data.pwd
+        }
+        console.log(data)
+        Auth.login(self.data.username, self.data.pwd)
+        $state.go('home', {}, {reload: true})
       }
-      console.log(data)
-      Auth.login(self.data.email, self.data.pwd)
-      $state.go('home', {}, {reload: true})
     }
   })
 
@@ -99,7 +101,7 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
     var self = this
 
     self.user = {
-      email: '',
+      username: '',
       pwd: ''
     }
 
@@ -108,15 +110,15 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
       return false
     }
 
-    self.login = function (email, pwd) {
-      self.user.email = email
+    self.login = function (username, pwd) {
+      self.user.username = username
       self.user.pwd = pwd
       $cookies.put('token', 'ABCEDFCLIJKLMNOPQRETUVWXYZ')
     }
 
     self.logout = function () {
       self.user = {
-        email: '',
+        username: '',
         pwd: ''
       }
       $cookies.remove('token')
