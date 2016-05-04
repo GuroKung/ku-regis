@@ -22,7 +22,7 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
     }
   })
 
-  .controller('LoginController', function ($state, Auth) {
+  .controller('LoginController', function (Auth) {
     var self = this
     self.data = {
       username: '',
@@ -36,7 +36,6 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
       }
       console.log(data)
       Auth.login(self.data.username, self.data.pwd)
-      if (Auth.isLogin) $state.go('home', {}, {reload: true})
     }
   })
 
@@ -64,7 +63,7 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
     }
   })
 
-  .controller('EnrollController', function ($http, $location) {
+  .controller('EnrollController', function ($http, $location, $anchorScroll) {
     var self = this
     self.course_list = []
     self.enroll = []
@@ -91,6 +90,12 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
           console.log('error: cannot post course enrollment data to server')
         })
     }
+
+    self.toTop = function () {
+      console.log('to Top')
+      $location.hash('top')
+      $anchorScroll()
+    }
   })
 
   .controller('InfoController', function ($http, $state, $stateParams) {
@@ -109,7 +114,7 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
       })
   })
 
-  .service('Auth', function ($http, $cookies) {
+  .service('Auth', function ($http, $cookies, $state) {
     var self = this
     self.user = {}
 
@@ -124,6 +129,7 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
           console.log(response)
           self.user = response
           $cookies.put('token', 'ABCEDFCLIJKLMNOPQRETUVWXYZ')
+          $state.go('home', {}, {reload: true})
         })
         .error(function (response) {
           console.log(response.error)
@@ -134,5 +140,4 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
       self.user = {}
       $cookies.remove('token')
     }
-
   })
