@@ -30,15 +30,13 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
     }
 
     self.login = function () {
-      if (self.data.username === 'b5610546702') {
-        var data = {
-          username: self.data.username,
-          pwd: self.data.pwd
-        }
-        console.log(data)
-        Auth.login(self.data.username, self.data.pwd)
-        $state.go('home', {}, {reload: true})
+      var data = {
+        username: self.data.username,
+        pwd: self.data.pwd
       }
+      console.log(data)
+      Auth.login(self.data.username, self.data.pwd)
+      if (Auth.isLogin) $state.go('home', {}, {reload: true})
     }
   })
 
@@ -66,7 +64,7 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
     }
   })
 
-  .controller('EnrollController', function ($http) {
+  .controller('EnrollController', function ($http, $location) {
     var self = this
     self.course_list = []
     self.enroll = []
@@ -79,6 +77,20 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
       .error(function (response) {
         console.log('error: cannot get list course json file')
       })
+
+    self.enroll = function (course_id, course_name_en, course_name_th) {
+      self.enroll.push({id: course_id, name_en: course_name_en, name_th: course_name_th})
+    }
+
+    self.submit = function () {
+      $http.post('http://' + location.host + '/api/enroll', self.enroll)
+        .success(function (response) {
+          console.log(response)
+        })
+        .error(function (response) {
+          console.log('error: cannot post course enrollment data to server')
+        })
+    }
   })
 
   .controller('InfoController', function ($http, $state, $stateParams) {
@@ -97,13 +109,9 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
       })
   })
 
-  .service('Auth', function ($cookies) {
+  .service('Auth', function ($http, $cookies) {
     var self = this
-
-    self.user = {
-      username: '',
-      pwd: ''
-    }
+    self.user = {}
 
     self.isLogin = function () {
       if ($cookies.get('token') != null) return true
@@ -111,16 +119,20 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
     }
 
     self.login = function (username, pwd) {
-      self.user.username = username
-      self.user.pwd = pwd
-      $cookies.put('token', 'ABCEDFCLIJKLMNOPQRETUVWXYZ')
+      $http.get('http://' + location.host + '/api/user/' + username.slice(1))
+        .success(function (response) {
+          console.log(response)
+          self.user = response
+          $cookies.put('token', 'ABCEDFCLIJKLMNOPQRETUVWXYZ')
+        })
+        .error(function (response) {
+          console.log(response.error)
+        })
     }
 
     self.logout = function () {
-      self.user = {
-        username: '',
-        pwd: ''
-      }
+      self.user = {}
       $cookies.remove('token')
     }
+
   })
