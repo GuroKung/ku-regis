@@ -57,7 +57,6 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
     }
 
     self.toTop = function () {
-      console.log('to Top')
       $location.hash('top')
       $anchorScroll()
     }
@@ -66,7 +65,7 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
   .controller('EnrollController', function ($http, $location, $anchorScroll) {
     var self = this
     self.course_list = []
-    self.enroll = []
+    self.enroll_list = []
 
     $http.get('https://whsatku.github.io/skecourses/list.json')
       .success(function (response) {
@@ -77,8 +76,20 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
         console.log('error: cannot get list course json file')
       })
 
+    self.alreadyEnroll = function (course_id) {
+      // check if the given course is already enroll
+      for (var i = 0; i < self.enroll_list.length; i++) {
+        if (self.enroll_list[i].id === course_id) {
+          return true
+        }
+      }
+      return false
+    }
+
     self.enroll = function (course_id, course_name_en, course_name_th) {
-      self.enroll.push({id: course_id, name_en: course_name_en, name_th: course_name_th})
+      console.log('course added')
+      self.enroll_list.push({id: course_id, name_en: course_name_en, name_th: course_name_th})
+      console.log(self.enroll_list)
     }
 
     self.submit = function () {
@@ -92,7 +103,6 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
     }
 
     self.toTop = function () {
-      console.log('to Top')
       $location.hash('top')
       $anchorScroll()
     }

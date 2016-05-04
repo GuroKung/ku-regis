@@ -10,7 +10,6 @@ api.get('/user/:user_id', function (req, res) {
   var user_id = req.params.user_id
   var user_file = 'public/json/user.json'
   jsonfile.readFile(user_file, function (err, obj) {
-    console.log(obj)
     // read key
     for (var i = 0; i < obj.length; i++) {
       if (user_id === obj[i].id) {

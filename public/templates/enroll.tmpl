@@ -17,7 +17,10 @@
         <b>{{course.name.th}}</b>
       </div>
       <div class="text-center">
-        <button class="btn btn-info btn-block info-button" ng-click="enrollCtrl.viewInfo(course.id)" type="button" name="button">Add Course</button>
+        <button class="btn btn-info btn-block info-button" ng-if="!enrollCtrl.alreadyEnroll(course.id)"
+        ng-click="enrollCtrl.enroll(course.id, course.name.en, course.name.th)" type="button" name="button">Add Course</button>
+        <button class="btn btn-danger btn-block info-button" ng-if="enrollCtrl.alreadyEnroll(course.id)"
+        ng-click="enrollCtrl.remove(course.id)" type="button" name="button">Remove Course</button>
       </div>
     </div>
   </div>
