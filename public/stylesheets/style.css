@@ -123,7 +123,7 @@ a {
   height: 200px;
   opacity: 0.8;
   background: url(../images/course.jpg) no-repeat;
-  color: black;
+  //color: black;
 }
 
 .info-button{
