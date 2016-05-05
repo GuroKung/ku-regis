@@ -36,6 +36,7 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
       }
       console.log(data)
       Auth.login(self.data.username, self.data.pwd)
+
     }
   })
 
@@ -90,6 +91,17 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
       console.log('course added')
       self.enroll_list.push({id: course_id, name_en: course_name_en, name_th: course_name_th})
       console.log(self.enroll_list)
+    }
+
+    self.remove = function (course_id){
+      console.log('course removed');
+      for (var i = 0 ; i < self.enroll_list.length ; i++) {
+        if(self.enroll_list[i].id === course_id){
+          self.enroll_list.splice(i,1);
+          console.log(self.enroll_list)
+          return
+        }
+      }
     }
 
     self.submit = function () {
