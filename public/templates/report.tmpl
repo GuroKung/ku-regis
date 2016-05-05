@@ -11,6 +11,11 @@
         {{enroll_course.name_th}}
       </p>
     </div>
+    <div class="text-center" ng-if="reportCtrl.enroll_list.length === 0">
+      <h4>
+        No courses
+      </h4>
+    </div>
   </div>
   </div>
   <button class="btn btn-primary back-button" ui-sref="home" type="button">

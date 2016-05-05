@@ -6,7 +6,7 @@
         <input type="text" class="form-control" placeholder="Search by course ID" ng-model="searchKey">
       </div> &nbsp;
       <button class="btn btn-default" type="button" name="button" ng-click="searchKey = ''">Clear</button>
-      <button class="btn btn-lg btn-success" type="button" data-toggle="modal" data-target="#submitModal" >Submit</button>
+      <button class="btn btn-lg btn-success" ng-disabled="enrollCtrl.enroll_list.length === 0" type="button" data-toggle="modal" data-target="#submitModal" >Submit</button>
     </form>
   </div>
   <div class="row">
