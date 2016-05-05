@@ -1,8 +1,16 @@
 <div class="container">
-  <h2>Report</h2>
+  <h2>Registration Report</h2>
   <div class="panel panel-default">
   <div class="panel-body">
-    blah blah blah
+    <div class="well" ng-repeat="enroll_course in reportCtrl.enroll_list">
+      <h4>{{enroll_course.id}}</h4>
+      <p>
+        {{enroll_course.name_en}}
+      </p>
+      <p>
+        {{enroll_course.name_th}}
+      </p>
+    </div>
   </div>
   </div>
   <button class="btn btn-primary back-button" ui-sref="home" type="button">
