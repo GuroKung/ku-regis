@@ -63,7 +63,7 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
     }
   })
 
-  .controller('EnrollController', function ($http, $location, $anchorScroll) {
+  .controller('EnrollController', function ($http, $state, $location, $anchorScroll) {
     var self = this
     self.course_list = []
     self.enroll_list = []
@@ -118,6 +118,10 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
       $location.hash('top')
       $anchorScroll()
     }
+
+    self.showReport = function (){
+      $state.transitionTo('report')
+    }
   })
 
   .controller('InfoController', function ($http, $state, $stateParams) {
@@ -135,6 +139,11 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
         console.log('error: cannot get course info json file')
       })
   })
+
+  .controller('ReportController', function(){
+    var self = this
+  })
+
 
   .service('Auth', function ($http, $cookies, $state) {
     var self = this

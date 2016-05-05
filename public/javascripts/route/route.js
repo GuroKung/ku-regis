@@ -40,5 +40,11 @@
         controller: 'InfoController',
         controllerAs: 'infoCtrl'
       })
+      .state('report', {
+        url: '/report',
+        templateUrl: 'templates/report.tmpl',
+        controller: 'ReportController',
+        controllerAs: 'reportCtrl'
+      })
   }
 })()
