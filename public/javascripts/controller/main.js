@@ -63,10 +63,10 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
     }
   })
 
-  .controller('EnrollController', function ($http, $state, $location, $anchorScroll) {
+  .controller('EnrollController', function ($http, $state, $location, $anchorScroll, Course_enroll) {
     var self = this
     self.course_list = []
-    self.enroll_list = []
+    self.enroll_list = Course_enroll.enroll_list
 
     $http.get('https://whsatku.github.io/skecourses/list.json')
       .success(function (response) {
@@ -89,19 +89,16 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
 
     self.enroll = function (course_id, course_name_en, course_name_th) {
       console.log('course added')
-      self.enroll_list.push({id: course_id, name_en: course_name_en, name_th: course_name_th})
-      console.log(self.enroll_list)
+      // enroll course via service
+      Course_enroll.enroll(course_id, course_name_en, course_name_th)
+      console.log(Course_enroll.enroll_list)
     }
 
     self.remove = function (course_id){
       console.log('course removed');
-      for (var i = 0 ; i < self.enroll_list.length ; i++) {
-        if(self.enroll_list[i].id === course_id){
-          self.enroll_list.splice(i,1);
-          console.log(self.enroll_list)
-          return
-        }
-      }
+      // remove course via service
+      Course_enroll.remove(course_id)
+      console.log(Course_enroll.enroll_list)
     }
 
     self.submit = function () {
@@ -140,35 +137,9 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
       })
   })
 
-  .controller('ReportController', function(){
+  .controller('ReportController', function(Course_enroll){
     var self = this
-  })
 
+    self.enroll_list = Course_enroll.enroll_list
 
-  .service('Auth', function ($http, $cookies, $state) {
-    var self = this
-    self.user = {}
-
-    self.isLogin = function () {
-      if ($cookies.get('token') != null) return true
-      return false
-    }
-
-    self.login = function (username, pwd) {
-      $http.get('http://' + location.host + '/api/user/' + username.slice(1))
-        .success(function (response) {
-          console.log(response)
-          self.user = response
-          $cookies.put('token', 'ABCEDFCLIJKLMNOPQRETUVWXYZ')
-          $state.go('home', {}, {reload: true})
-        })
-        .error(function (response) {
-          console.log(response.error)
-        })
-    }
-
-    self.logout = function () {
-      self.user = {}
-      $cookies.remove('token')
-    }
   })
