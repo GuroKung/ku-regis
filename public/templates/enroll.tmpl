@@ -6,7 +6,7 @@
         <input type="text" class="form-control" placeholder="Search by course ID" ng-model="searchKey">
       </div> &nbsp;
       <button class="btn btn-default" type="button" name="button" ng-click="searchKey = ''">Clear</button>
-      <button class="btn btn-lg btn-success" type="button" name="button">submit</button>
+      <button class="btn btn-lg btn-success" type="button" data-toggle="modal" data-target="#submitModal" >Submit</button>
     </form>
   </div>
   <div class="row">
@@ -27,5 +27,32 @@
   <div class="text-center">
     <button ng-click="enrollCtrl.toTop()" class="btn btn-default back-button" type="button" name="button">
       <span class="glyphicon glyphicon-arrow-up"></span> Back to top</button>
+  </div>
+</div>
+
+<!-- course enrollment report -->
+<div class="modal" id="submitModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Enrollment Course</h4>
+      </div>
+      <div class="modal-body">
+        <div class="well" ng-repeat="enroll_course in enrollCtrl.enroll_list">
+          <p>{{enroll_course.id}}</p>
+          <p>
+            {{enroll_course.name_en}}
+          </p>
+          <p>
+            {{enroll_course.name_th}}
+          </p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-success">Save changes</button>
+      </div>
+    </div>
   </div>
 </div>
