@@ -102,7 +102,7 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
     }
 
     self.submit = function () {
-      $http.post('http://' + location.host + '/api/enroll', { user_id: Auth.user.id, enroll_list: self.enroll_list })
+      $http.post('https://' + location.host + '/api/enroll', { user_id: Auth.user.id, enroll_list: self.enroll_list })
         .success(function (response) {
           console.log(response)
           $state.transitionTo('report')
