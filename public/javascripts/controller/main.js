@@ -63,7 +63,7 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
     }
   })
 
-  .controller('EnrollController', function ($http, $state, $location, $anchorScroll, Course_enroll) {
+  .controller('EnrollController', function ($http, $state, $location, $anchorScroll, Course_enroll, Auth) {
     var self = this
     self.course_list = []
     self.enroll_list = Course_enroll.enroll_list
@@ -94,17 +94,18 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
       console.log(Course_enroll.enroll_list)
     }
 
-    self.remove = function (course_id){
-      console.log('course removed');
+    self.remove = function (course_id) {
+      console.log('course removed')
       // remove course via service
       Course_enroll.remove(course_id)
       console.log(Course_enroll.enroll_list)
     }
 
     self.submit = function () {
-      $http.post('http://' + location.host + '/api/enroll', self.enroll)
+      $http.post('http://' + location.host + '/api/enroll', { user_id: Auth.user.id, enroll_list: self.enroll_list })
         .success(function (response) {
           console.log(response)
+          $state.transitionTo('report')
         })
         .error(function (response) {
           console.log('error: cannot post course enrollment data to server')
@@ -114,10 +115,6 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
     self.toTop = function () {
       $location.hash('top')
       $anchorScroll()
-    }
-
-    self.showReport = function (){
-      $state.transitionTo('report')
     }
   })
 
@@ -137,7 +134,7 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
       })
   })
 
-  .controller('ReportController', function(Course_enroll){
+  .controller('ReportController', function (Course_enroll) {
     var self = this
 
     self.enroll_list = Course_enroll.enroll_list

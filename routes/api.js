@@ -9,11 +9,11 @@ api.get('/', function (req, res) {
 api.get('/user/:user_id', function (req, res) {
   var user_id = req.params.user_id
   var user_file = 'public/json/user.json'
-  jsonfile.readFile(user_file, function (err, obj) {
-    // read key
-    for (var i = 0; i < obj.length; i++) {
-      if (user_id === obj[i].id) {
-        return res.json(obj[i])
+  jsonfile.readFile(user_file, function (err, user_list) {
+    // read user data
+    for (var i = 0; i < user_list.length; i++) {
+      if (user_id === user_list[i].id) {
+        return res.json(user_list[i])
       }
     }
     return res.status(404).json({'error': 'user not found'})
@@ -21,7 +21,23 @@ api.get('/user/:user_id', function (req, res) {
 })
 
 api.post('/enroll', function (req, res) {
-  res.send('response recived')
+  res.send('course enrollment recived')
+  console.log(req.body)
+  var user_id = req.body.user_id
+  var enroll_list = req.body.enroll_list
+  var user_file = 'public/json/user.json'
+  // read user data
+  var user_list = jsonfile.readFileSync(user_file)
+  for (var i = 0; i < user_list.length; i++) {
+    if (user_id === user_list[i].id) {
+      // enroll user's courses
+      user_list[i].courses = enroll_list
+      break
+    }
+  }
+  // write user data back to user.json
+  jsonfile.writeFileSync(user_file, user_list, {spaces: 2})
+  console.log('user ' + user_id + ' course enrollment recived')
 })
 
 module.exports = api

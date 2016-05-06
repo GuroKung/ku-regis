@@ -1,5 +1,5 @@
 angular.module('ku-regis')
-  .service('Course_enroll', function(){
+  .service('Course_enroll', function () {
     var self = this
     self.enroll_list = []
 
@@ -9,11 +9,11 @@ angular.module('ku-regis')
       console.log(self.enroll_list)
     }
 
-    self.remove = function (course_id){
-      console.log('course removed');
-      for (var i = 0 ; i < self.enroll_list.length ; i++) {
-        if(self.enroll_list[i].id === course_id){
-          self.enroll_list.splice(i,1);
+    self.remove = function (course_id) {
+      console.log('course removed')
+      for (var i = 0; i < self.enroll_list.length; i++) {
+        if (self.enroll_list[i].id === course_id) {
+          self.enroll_list.splice(i, 1)
           console.log(self.enroll_list)
           return
         }
@@ -22,7 +22,7 @@ angular.module('ku-regis')
 
   })
 
-  .service('Auth', function ($http, $cookies, $state) {
+  .service('Auth', function ($http, $cookies, $state, Course_enroll) {
     var self = this
     self.user = {}
 
@@ -36,6 +36,8 @@ angular.module('ku-regis')
         .success(function (response) {
           console.log(response)
           self.user = response
+          // get user's course enrollment data
+          Course_enroll.enroll_list = self.user.courses
           $cookies.put('token', 'ABCEDFCLIJKLMNOPQRETUVWXYZ')
           $state.go('home', {}, {reload: true})
         })
