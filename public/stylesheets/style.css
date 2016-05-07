@@ -179,11 +179,13 @@ box-shadow: 10px 10px 19px -12px rgba(0,0,0,0.75);
 .fadeInUp {
     -webkit-animation-name: fadeInUp;
     animation-name: fadeInUp;
+    visibility: visible;
 }
 
 .fadeInDown {
     -webkit-animation-name: fadeInDown;
     animation-name: fadeInDown;
+    visibility: visible;
 }
 
 .animated {

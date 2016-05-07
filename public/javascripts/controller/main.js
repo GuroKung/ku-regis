@@ -2,6 +2,7 @@
 angular.module('ku-regis', ['ui.router', 'ngCookies'])
   .controller('HomePageController', function ($state, Auth) {
     var self = this
+    self.user = Auth.user
 
     if (!Auth.isLogin()) {
       $state.go('login', {}, {reload: true})

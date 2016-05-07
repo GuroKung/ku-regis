@@ -10,18 +10,18 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="h-service">
-            <div class="icon-wrap ico-bg round-fifty wow fadeInDown animated" data-wow-animation-name="fadeInDown" style="visibility: visible; animation-name: fadeInDown;">
+            <div class="icon-wrap ico-bg round-fifty wow fadeInDown animated" data-wow-animation-name="fadeInDown">
               <i class="glyphicon glyphicon-th-large">
               </i>
             </div>
-            <div class="h-service-content wow fadeInUp animated" data-wow-animation-name="fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+            <div class="h-service-content wow fadeInUp animated" data-wow-animation-name="fadeInUp">
               <h3><br>
                 View Courses
               </h3>
               <p>
                 Information of all courses available
                 <button type="button" class="btn btn-success top-bot-5" data-toggle="tooltip" ui-sref="courses"
-                data-placement="left" title="" data-original-title="Information of all courses available">View Courses</button>
+                data-placement="left" title="" data-original-title="Click here to view information of all courses available">View Courses</button>
               </p>
             </div>
           </div>
@@ -32,11 +32,11 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="h-service">
-            <div class="icon-wrap ico-bg round-fifty wow fadeInDown animated" data-wow-animation-name="fadeInDown" style="visibility: visible; animation-name: fadeInDown;">
+            <div class="icon-wrap ico-bg round-fifty wow fadeInDown animated" data-wow-animation-name="fadeInDown">
               <i class="glyphicon glyphicon-pencil">
               </i>
             </div>
-            <div class="h-service-content wow fadeInUp animated" data-wow-animation-name="fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+            <div class="h-service-content wow fadeInUp animated" data-wow-animation-name="fadeInUp">
               <h3><br>
                 Enroll Courses
               </h3>
@@ -44,7 +44,7 @@
                 Enroll for available courses
                 <br>
                 <button type="button" class="btn btn-success top-bot-5" data-toggle="tooltip" ui-sref="enroll"
-                data-placement="right" title="" data-original-title="Enroll for available courses">Enroll Courses</button>
+                data-placement="bottom" title="" data-original-title="Click here to enroll for available courses">Enroll Courses</button>
               </p>
             </div>
           </div>
@@ -67,7 +67,7 @@
                 Show course registration report
                 <br>
                 <button type="button" class="btn btn-success top-bot-5" data-toggle="tooltip" ui-sref="report"
-                data-placement="left" title="" data-original-title="Show course registration report">Registration Report</button>
+                data-placement="right" title="" data-original-title="Click here to view course registration report">Registration Report</button>
               </p>
             </div>
           </div>
@@ -82,53 +82,41 @@
         <div class="list-group">
           <a class="list-group-item">
             <h5 class="list-group-item-heading">ID</h5>
-            <p class="list-group-item-text">b5610546702</p>
+            <p class="list-group-item-text">{{homepageCtrl.user.id}}</p>
           </a>
           <a class="list-group-item">
             <h5 class="list-group-item-heading">Name</h5>
-            <p class="list-group-item-text">Jiratchaya Intaragumaheng</p>
+            <p class="list-group-item-text">{{homepageCtrl.user.name}}</p>
           </a>
           <a class="list-group-item">
             <h5 class="list-group-item-heading">Degree Level</h5>
-            <p class="list-group-item-text">Bachelor</p>
+            <p class="list-group-item-text">{{homepageCtrl.user.degree}}</p>
           </a>
           <a class="list-group-item">
             <h5 class="list-group-item-heading">Campus</h5>
-            <p class="list-group-item-text">Bangkhen</p>
+            <p class="list-group-item-text">{{homepageCtrl.user.campus}}</p>
           </a>
           <a class="list-group-item">
             <h5 class="list-group-item-heading">Faculty</h5>
-            <p class="list-group-item-text">Engineering</p>
+            <p class="list-group-item-text">{{homepageCtrl.user.faculty}}</p>
           </a>
           <a class="list-group-item">
             <h5 class="list-group-item-heading">Major</h5>
-            <p class="list-group-item-text">Software & Knowledge Engineering (E17)</p>
+            <p class="list-group-item-text">{{homepageCtrl.user.major}} ({{homepageCtrl.user.major_id}})</p>
           </a>
           <a class="list-group-item">
             <h5 class="list-group-item-heading">Advisor</h5>
-            <p class="list-group-item-text">Intiraporn Mulasatra (E9011)</p>
+            <p class="list-group-item-text">{{homepageCtrl.user.advisor}} ({{homepageCtrl.user.advisor_id}})</p>
           </a>
           <a class="list-group-item">
             <h5 class="list-group-item-heading">Student Status</h5>
-            <p class="list-group-item-text">Currently studying </p>
+            <p class="list-group-item-text">{{homepageCtrl.user.status}} </p>
           </a>
         </div>
       </div>
     </div>
   </div>
   <div class="col-lg-6 text-center">
-    <!-- <div class="top-bot-5">
-      <button type="button" class="btn btn-success btn-lg btn-block" data-toggle="tooltip" ui-sref="courses"
-      data-placement="left" title="" data-original-title="Information of all courses available">View Courses</button>
-    </div>
-    <div class="top-bot-5">
-      <button type="button" class="btn btn-success btn-lg btn-block" data-toggle="tooltip" ui-sref="enroll"
-      data-placement="right" title="" data-original-title="Enroll for available courses">Enroll Courses</button>
-    </div>
-    <div class="top-bot-5">
-      <button type="button" class="btn btn-success btn-lg btn-block" data-toggle="tooltip" ui-sref="report"
-      data-placement="left" title="" data-original-title="Show course registration report">Registration Report</button>
-    </div> -->
     <div class="panel panel-default">
       <div class="panel-body">
         <h2>Time</h2>
