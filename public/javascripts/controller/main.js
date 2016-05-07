@@ -91,14 +91,12 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
       console.log('course added')
       // enroll course via service
       Course_enroll.enroll(course_id, course_name_en, course_name_th)
-      console.log(Course_enroll.enroll_list)
     }
 
     self.remove = function (course_id) {
       console.log('course removed')
       // remove course via service
       Course_enroll.remove(course_id)
-      console.log(Course_enroll.enroll_list)
     }
 
     self.submit = function () {

@@ -26,6 +26,19 @@ angular.module('ku-regis')
     var self = this
     self.user = {}
 
+    self.initUser = function (){
+      $http.get('http://' + location.host + '/api/user/' + $cookies.get('token'))
+        .success(function (response) {
+          console.log(response)
+          self.user = response
+          // get user's course enrollment data
+          Course_enroll.enroll_list = self.user.courses
+        })
+        .error(function (response) {
+          console.log(response.error)
+        })
+    }
+
     self.isLogin = function () {
       if ($cookies.get('token') != null) return true
       return false
@@ -38,7 +51,7 @@ angular.module('ku-regis')
           self.user = response
           // get user's course enrollment data
           Course_enroll.enroll_list = self.user.courses
-          $cookies.put('token', 'ABCEDFCLIJKLMNOPQRETUVWXYZ')
+          $cookies.put('token', self.user.id)
           $state.go('home', {}, {reload: true})
         })
         .error(function (response) {
@@ -49,5 +62,10 @@ angular.module('ku-regis')
     self.logout = function () {
       self.user = {}
       $cookies.remove('token')
+    }
+
+    // if user still login, then init user data
+    if(self.isLogin()){
+      self.initUser()
     }
   })
