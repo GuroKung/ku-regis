@@ -1,1 +1,31 @@
-[{"id":"5610546702","name":"Jiratchaya Intaragumhaeng","degree":"Bachelor","campus":"Bangkhen","faculty":"Engineering","major":"Software & Knowledge Engineering","major_id":"E17","advisor":"Intiraporn Mulasatra","advisor_id":"E9011","status":"Currently studying","courses":[{"id":"01219113","name_en":"Object-Oriented Programming II","name_th":"การโปรแกรมเชิงวัตถุ II"},{"id":"01219212","name_en":"Abstract Data Types Laboratory","name_th":"ปฏิบัติการชนิดข้อมูลนามธรรม"},{"id":"01219214","name_en":"Probability and Statistics for Software and Knowledge Engineers","name_th":"ความน่าจะเป็นและสถิติสำหรับวิศวกรซอฟต์แวร์และความรู้"}]}]
+[
+  {
+    "id": "5610546702",
+    "name": "Jiratchaya Intaragumhaeng",
+    "degree": "Bachelor",
+    "campus": "Bangkhen",
+    "faculty": "Engineering",
+    "major": "Software & Knowledge Engineering",
+    "major_id": "E17",
+    "advisor": "Intiraporn Mulasatra",
+    "advisor_id": "E9011",
+    "status": "Currently studying",
+    "courses": [
+      {
+        "id": "01219113",
+        "name_en": "Object-Oriented Programming II",
+        "name_th": "การโปรแกรมเชิงวัตถุ II"
+      },
+      {
+        "id": "01219112",
+        "name_en": "Introduction to Information Technology",
+        "name_th": "เทคโนโลยีสารสนเทศเบื้องต้น"
+      },
+      {
+        "id": "01219213",
+        "name_en": "Communication Skills for Software and Knowledge Engineers",
+        "name_th": "ทักษะการสื่อสารสำหรับวิศวกรซอฟต์แวร์และความรู้"
+      }
+    ]
+  }
+]
