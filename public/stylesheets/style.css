@@ -134,3 +134,7 @@ a {
   margin-top: 10px;
   margin-bottom: 3%;
 }
+
+.report-container{
+  min-height: 600px;
+}
