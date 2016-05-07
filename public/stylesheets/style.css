@@ -138,3 +138,55 @@ a {
 .report-container{
   min-height: 600px;
 }
+
+.h-service {
+    border: 1px solid #eee;
+    margin-bottom: 25px;
+}
+
+.round-fifty {
+    border-radius: 50px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    margin-left: 40%;
+    margin-top: -25px;
+}
+
+.ico-bg {
+    background: #48cfad;
+}
+
+.icon-wrap {
+    font-size: 2em;
+    height: 60px;
+    width: 60px;
+    float: left;
+    line-height: 60px;
+    text-align: center;
+    color: #fff;
+    margin-right: 30px;
+}
+
+.fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+}
+
+.fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+}
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.import-box{
+  font-size: 14px;
+      font-family: 'Lato', sans-serif;
+      color: #797979;
+      text-align: center
+}
