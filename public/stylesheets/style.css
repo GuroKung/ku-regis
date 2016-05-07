@@ -122,8 +122,14 @@ a {
   margin: 10px;
   width: 31%;
   height: 200px;
-  opacity: 0.8;
+  opacity: 0.75;
+  -webkit-transition: 0.5s; /* Safari */
+  transition: 0.5s;
   background: url(../images/course.jpg) no-repeat;
+}
+
+.course-box:hover{
+  opacity: 1;
 }
 
 .info-button{
@@ -141,7 +147,7 @@ a {
 
 .h-service {
     border: 1px solid #eee;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
 }
 
 .round-fifty {
