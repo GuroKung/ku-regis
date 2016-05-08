@@ -112,10 +112,10 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
       return false
     }
 
-    self.enroll = function (course_id, course_name_en, course_name_th, credit_lec, credit_lab) {
+    self.enroll = function (course_id, course_name_en, course_name_th, credit) {
       console.log('course added')
       // enroll course via service
-      Course_enroll.enroll(course_id, course_name_en, course_name_th, credit_lec, credit_lab)
+      Course_enroll.enroll(course_id, course_name_en, course_name_th, credit)
     }
 
     self.remove = function (course_id) {
@@ -166,12 +166,8 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
     self.getTotalCredits = function () {
       var total = 0
       for (var i = 0; i < self.enroll_list.length; i++) {
-        var enroll_course = self.enroll_list[i]
-        if (enroll_course.credit.lec != 0) {
-          total += enroll_course.credit.lec
-        }
-        if (enroll_course.credit.lab != 0) {
-          total += enroll_course.credit.lab
+        if (self.enroll_list[i].credit != 0) {
+          total += self.enroll_list[i].credit
         }
       }
       return total

@@ -3,9 +3,9 @@ angular.module('ku-regis')
     var self = this
     self.enroll_list = []
 
-    self.enroll = function (course_id, course_name_en, course_name_th , credit_lec, credit_lab) {
+    self.enroll = function (course_id, course_name_en, course_name_th , credit) {
       console.log('course added')
-      self.enroll_list.push({id: course_id, name_en: course_name_en, name_th: course_name_th, credit: { lec: credit_lec, lab: credit_lab}})
+      self.enroll_list.push({id: course_id, name_en: course_name_en, name_th: course_name_th, credit: credit})
       console.log(self.enroll_list)
     }
 
