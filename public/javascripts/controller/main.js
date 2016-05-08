@@ -139,6 +139,16 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
       $location.hash('top')
       $anchorScroll()
     }
+
+    self.getTotalCredits = function () {
+      var total = 0
+      for (var i = 0; i < self.enroll_list.length; i++) {
+        if (self.enroll_list[i].credit != 0) {
+          total += self.enroll_list[i].credit
+        }
+      }
+      return total
+    }
   })
 
   .controller('InfoController', function ($http, $state, $stateParams) {
