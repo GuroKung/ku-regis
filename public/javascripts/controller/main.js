@@ -9,7 +9,9 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
     }
 
     // start timer
-    startTime()
+    if ($state.$current.name === 'home') {
+      startTime()
+    }
 
     function startTime () {
       var today = new Date()
@@ -23,7 +25,7 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
       var t = setTimeout(startTime, 500)
     }
     function checkTime (i) {
-      if (i < 10) {i = '0' + i}; // add zero in front of numbers < 10
+      if (i < 10) { i = '0' + i }; // add zero in front of numbers < 10
       return i
     }
 
@@ -110,10 +112,10 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
       return false
     }
 
-    self.enroll = function (course_id, course_name_en, course_name_th) {
+    self.enroll = function (course_id, course_name_en, course_name_th, credit_lec, credit_lab) {
       console.log('course added')
       // enroll course via service
-      Course_enroll.enroll(course_id, course_name_en, course_name_th)
+      Course_enroll.enroll(course_id, course_name_en, course_name_th, credit_lec, credit_lab)
     }
 
     self.remove = function (course_id) {
@@ -159,5 +161,20 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
     var self = this
 
     self.enroll_list = Course_enroll.enroll_list
+    console.log(self.enroll_list)
+
+    self.getTotalCredits = function () {
+      var total = 0
+      for (var i = 0; i < self.enroll_list.length; i++) {
+        var enroll_course = self.enroll_list[i]
+        if (enroll_course.credit.lec != 0) {
+          total += enroll_course.credit.lec
+        }
+        if (enroll_course.credit.lab != 0) {
+          total += enroll_course.credit.lab
+        }
+      }
+      return total
+    }
 
   })
