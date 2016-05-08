@@ -55,9 +55,11 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
         username: self.data.username,
         pwd: self.data.pwd
       }
-      console.log(data)
-      Auth.login(self.data.username, self.data.pwd)
 
+      if (self.data.username !== 'b5610546702') {
+        self.error = true
+      }
+      Auth.login(self.data.username, self.data.pwd)
     }
   })
 
