@@ -46,7 +46,7 @@
           <li><a href="#/home">Home <span class="sr-only">(current)</span></a></li>
           <li><a href="#">Announcement</a></li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Education <span class="caret"></span></a>
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Education <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="#">Academic Calendar</a></li>
               <li><a href="#">New Students Information</a></li>
@@ -60,153 +60,142 @@
         <ul class="nav navbar-nav navbar-right" ng-if="!navCtrl.isLogin()">
           <li><a> <span class="glyphicon glyphicon-user"></span>
             Login as Jiratchaya Intaragumhaeng</a></li>
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              <span class="glyphicon glyphicon-cog"></span> <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">User Profile</a></li>
-              <li><a href="#">Settings</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#" ng-click="navCtrl.logout()">Logout</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <span class="glyphicon glyphicon-cog"></span> <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">User Profile</a></li>
+                  <li><a href="#">Settings</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#" ng-click="navCtrl.logout()">Logout</a></li>
+                </ul>
+              </li>
             </ul>
-          </li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
 
-  <!-- render view page -->
-  <ui-view></ui-view>
+      <!-- render view page -->
+      <ui-view></ui-view>
 
-  <footer class="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3 col-sm-3 address wow fadeInUp animated" data-wow-duration="2s" data-wow-delay=".1s" data-wow-animation-name="fadeInUp" style="visibility: visible; animation-duration: 2s; animation-delay: 0.1s; animation-name: fadeInUp;">
-            <h1>
-              contact info
-            </h1>
-            <address>
-              <p><i class="fa fa-home pr-10"></i>Address: No.XXXXXX street</p>
-              <p><i class="fa fa-globe pr-10"></i>Mars city, Country </p>
-              <p><i class="fa fa-mobile pr-10"></i>Mobile : (123) 456-7890 </p>
-              <p><i class="glyphicon glyphicon-earphone pr-10"></i>Phone : (123) 456-7890 </p>
-              <p><i class="fa fa-envelope pr-10"></i>Email :   <a href="javascript:;">support@example.com</a></p>
-            </address>
-          </div>
-          <div class="col-lg-3 col-sm-3 wow fadeInUp animated" data-wow-duration="2s" data-wow-delay=".3s" data-wow-animation-name="fadeInUp" style="visibility: visible; animation-duration: 2s; animation-delay: 0.3s; animation-name: fadeInUp;">
-            <h1>latest tweet</h1>
-              <div class="tweet-box">
-                <i class="fa fa-twitter"></i>
-                <em>
-                  Please follow
-                  <a href="javascript:;">@example</a>
-                  for all future updates of us!
-                  <a href="javascript:;">twitter.com/acme</a>
-                </em>
-              </div>
-              <div class="tweet-box">
-                <i class="fa fa-twitter"></i>
-                <em>
-                  Please follow
-                  <a href="javascript:;">@example</a>
-                  for all future updates of us!
-                  <a href="javascript:;">twitter.com/acme</a>
-                </em>
-              </div>
-              <div class="tweet-box">
-                <i class="fa fa-twitter"></i>
-                <em>
-                  Please follow
-                  <a href="javascript:;">@example</a>
-                  for all future updates of us!
-                  <a href="javascript:;">twitter.com/acme</a>
-                </em>
-              </div>
-          </div>
-          <div class="col-lg-3 col-sm-3">
-            <div class="page-footer wow fadeInUp animated" data-wow-duration="2s" data-wow-delay=".5s" data-wow-animation-name="fadeInUp" style="visibility: visible; animation-duration: 2s; animation-delay: 0.5s; animation-name: fadeInUp;">
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 col-sm-4 address wow fadeInUp animated" data-wow-duration="2s" data-wow-delay=".1s" data-wow-animation-name="fadeInUp" style="visibility: visible; animation-duration: 2s; animation-delay: 0.1s; animation-name: fadeInUp;">
               <h1>
-                Our Company
+                contact info
               </h1>
-              <ul class="page-footer-list">
-                <li>
-                  <i class="glyphicon glyphicon-chevron-right"></i>
-                  <a href="about.html">About Us</a>
-                </li>
-                <li>
-                  <i class="glyphicon glyphicon-chevron-right"></i>
-                  <a href="faq.html">Support</a>
-                </li>
-                <li>
-                  <i class="glyphicon glyphicon-chevron-right"></i>
-                  <a href="service.html">Service</a>
-                </li>
-                <li>
-                  <i class="glyphicon glyphicon-chevron-right"></i>
-                  <a href="privacy-policy.html">Privacy Policy</a>
-                </li>
-                <li>
-                  <i class="glyphicon glyphicon-chevron-right"></i>
-                  <a href="career.html">We are Hiring</a>
-                </li>
-                <li>
-                  <i class="glyphicon glyphicon-chevron-right"></i>
-                  <a href="terms.html">Term &amp; condition</a>
-                </li>
+              <address>
+                <p><i class="glyphicon glyphicon-home pr-10"></i>Address: 50 Ngam Wong Wan Rd, Ladyaow Chatuchak Bangkok 10900</p>
+                <p><i class="glyphicon glyphicon-globe pr-10"></i>Bangkok, Thailand </p>
+                <p><i class="glyphicon glyphicon-phone-alt pr-10"></i>Phone : 02-9428200, 02-5620951-5, 02-5620985 </p>
+                <p><i class="glyphicon glyphicon-envelope pr-10"></i>Email :   <a href="javascript:;">support@example.com</a></p>
+              </address>
+            </div>
+            <div class="col-lg-4 col-sm-4">
+              <div class="text-footer wow fadeInUp animated" data-wow-duration="2s" data-wow-delay=".7s" data-wow-animation-name="fadeInUp" style="visibility: visible; animation-duration: 2s; animation-delay: 0.7s; animation-name: fadeInUp;">
+                <h1>
+                  International Studies Center
+                </h1>
+                <p>
+                  Ext. 8301- 8306
+                </p>
+                <p>
+                  Mobile: 087-5905918
+                </p>
+                <h1>
+                  Office of the Registrar
+                </h1>
+                <p>
+                  Ext. 8035 - 8042
+                </p>
+                <p>
+                  Fax: 02-9428020
+                </p>
+                <h1>
+                  Office of Computer Services
+                </h1>
+                <p>
+                  Ext. 2541,2542 or 2543
+                </p>
+                <p>
+                  Fax: 02-5620950
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-4">
+              <div class="page-footer wow fadeInUp animated" data-wow-duration="2s" data-wow-delay=".5s" data-wow-animation-name="fadeInUp" style="visibility: visible; animation-duration: 2s; animation-delay: 0.5s; animation-name: fadeInUp;">
+                <h1>
+                  Our Company
+                </h1>
+                <ul class="page-footer-list">
+                  <li>
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                    <a href="#">About Us</a>
+                  </li>
+                  <li>
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                    <a href="#">Support</a>
+                  </li>
+                  <li>
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                    <a href="#">Service</a>
+                  </li>
+                  <li>
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                    <a href="#">Privacy Policy</a>
+                  </li>
+                  <li>
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                    <a href="#">We are Hiring</a>
+                  </li>
+                  <li>
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                    <a href="#">Term &amp; condition</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <footer class="footer-small">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-sm-6 pull-right">
+              <ul class="social-link-footer list-unstyled">
+                <li class="wow flipInX animated" data-wow-duration="2s" data-wow-delay=".1s" data-wow-animation-name="flipInX" style="visibility: visible; animation-duration: 2s; animation-delay: 0.1s; animation-name: flipInX;"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li class="wow flipInX animated" data-wow-duration="2s" data-wow-delay=".2s" data-wow-animation-name="flipInX" style="visibility: visible; animation-duration: 2s; animation-delay: 0.2s; animation-name: flipInX;"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                <li class="wow flipInX animated" data-wow-duration="2s" data-wow-delay=".3s" data-wow-animation-name="flipInX" style="visibility: visible; animation-duration: 2s; animation-delay: 0.3s; animation-name: flipInX;"><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                <li class="wow flipInX animated" data-wow-duration="2s" data-wow-delay=".4s" data-wow-animation-name="flipInX" style="visibility: visible; animation-duration: 2s; animation-delay: 0.4s; animation-name: flipInX;"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                <li class="wow flipInX animated" data-wow-duration="2s" data-wow-delay=".5s" data-wow-animation-name="flipInX" style="visibility: visible; animation-duration: 2s; animation-delay: 0.5s; animation-name: flipInX;"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li class="wow flipInX animated" data-wow-duration="2s" data-wow-delay=".6s" data-wow-animation-name="flipInX" style="visibility: visible; animation-duration: 2s; animation-delay: 0.6s; animation-name: flipInX;"><a href="#"><i class="fa fa-skype"></i></a></li>
+                <li class="wow flipInX animated" data-wow-duration="2s" data-wow-delay=".7s" data-wow-animation-name="flipInX" style="visibility: visible; animation-duration: 2s; animation-delay: 0.7s; animation-name: flipInX;"><a href="#"><i class="fa fa-github"></i></a></li>
+                <li class="wow flipInX animated" data-wow-duration="2s" data-wow-delay=".8s" data-wow-animation-name="flipInX" style="visibility: visible; animation-duration: 2s; animation-delay: 0.8s; animation-name: flipInX;"><a href="#"><i class="fa fa-youtube"></i></a></li>
               </ul>
             </div>
-          </div>
-          <div class="col-lg-3 col-sm-3">
-            <div class="text-footer wow fadeInUp animated" data-wow-duration="2s" data-wow-delay=".7s" data-wow-animation-name="fadeInUp" style="visibility: visible; animation-duration: 2s; animation-delay: 0.7s; animation-name: fadeInUp;">
-              <h1>
-                Text Widget
-              </h1>
-              <p>
-                This is a text widget.Lorem ipsum dolor sit amet.
-                This is a text widget.Lorem ipsum dolor sit amet.
-              </p>
+            <div class="col-md-4">
+              <div class="copyright">
+                <p>© Copyright - GuroKung</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </footer>
-    <footer class="footer-small">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-sm-6 pull-right">
-                    <ul class="social-link-footer list-unstyled">
-                        <li class="wow flipInX animated" data-wow-duration="2s" data-wow-delay=".1s" data-wow-animation-name="flipInX" style="visibility: visible; animation-duration: 2s; animation-delay: 0.1s; animation-name: flipInX;"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li class="wow flipInX animated" data-wow-duration="2s" data-wow-delay=".2s" data-wow-animation-name="flipInX" style="visibility: visible; animation-duration: 2s; animation-delay: 0.2s; animation-name: flipInX;"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li class="wow flipInX animated" data-wow-duration="2s" data-wow-delay=".3s" data-wow-animation-name="flipInX" style="visibility: visible; animation-duration: 2s; animation-delay: 0.3s; animation-name: flipInX;"><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                        <li class="wow flipInX animated" data-wow-duration="2s" data-wow-delay=".4s" data-wow-animation-name="flipInX" style="visibility: visible; animation-duration: 2s; animation-delay: 0.4s; animation-name: flipInX;"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li class="wow flipInX animated" data-wow-duration="2s" data-wow-delay=".5s" data-wow-animation-name="flipInX" style="visibility: visible; animation-duration: 2s; animation-delay: 0.5s; animation-name: flipInX;"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li class="wow flipInX animated" data-wow-duration="2s" data-wow-delay=".6s" data-wow-animation-name="flipInX" style="visibility: visible; animation-duration: 2s; animation-delay: 0.6s; animation-name: flipInX;"><a href="#"><i class="fa fa-skype"></i></a></li>
-                        <li class="wow flipInX animated" data-wow-duration="2s" data-wow-delay=".7s" data-wow-animation-name="flipInX" style="visibility: visible; animation-duration: 2s; animation-delay: 0.7s; animation-name: flipInX;"><a href="#"><i class="fa fa-github"></i></a></li>
-                        <li class="wow flipInX animated" data-wow-duration="2s" data-wow-delay=".8s" data-wow-animation-name="flipInX" style="visibility: visible; animation-duration: 2s; animation-delay: 0.8s; animation-name: flipInX;"><a href="#"><i class="fa fa-youtube"></i></a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                  <div class="copyright">
-                    <p>© Copyright - Acme Theme by cosmic.</p>
-                  </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+      </footer>
 
-  <!-- <footer class="footer">
-    <div class="row">
+      <!-- <footer class="footer">
+      <div class="row">
       <div class="col-md-6">
-        <p>
-          Created by Jiratchaya Intaragumaheng
-        </p>
-      </div>
-      <div class="col-md-6">
-        Copyright 2016
-        <span class="glyphicon glyphicon-copyright-mark"></span>
-        GuroKung
-      </div>
-    </div>
-  </footer> -->
+      <p>
+      Created by Jiratchaya Intaragumaheng
+    </p>
+  </div>
+  <div class="col-md-6">
+  Copyright 2016
+  <span class="glyphicon glyphicon-copyright-mark"></span>
+  GuroKung
+</div>
+</div>
+</footer> -->
 </body>
 </html>

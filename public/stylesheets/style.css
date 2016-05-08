@@ -71,6 +71,11 @@ ul.page-footer-list a {
     color: #fff;
 }
 
+ul.page-footer-list a:hover {
+  color: #48cfad;
+  text-decoration: none;
+}
+
 ul, ol {
     margin-top: 0;
     margin-bottom: 10px;
