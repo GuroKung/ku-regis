@@ -10,7 +10,7 @@
   <link href="stylesheets/animate.css" rel="stylesheet">
   <link href="stylesheets/style.css" rel="stylesheet">
 </head>
-<body>
+<body onload="startTime()">
   <!-- Import scripts -->
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
@@ -25,14 +25,11 @@
   <!-- service script -->
   <script type="text/javascript" src="javascripts/service/service.js"></script>
 
+  <!-- custom scripts -->
+  <script type="text/javascript" src="javascripts/custom.js"></script>
+
   <!-- router -->
   <script type="text/javascript" src="javascripts/route/route.js"></script>
-
-  <script type="text/javascript">
-  $(document).ready(function () {
-    $('body').tooltip({ selector: '[data-toggle=tooltip]' })
-  })
-  </script>
 
   <nav class="navbar navbar-default navbar-fixed-top" ng-controller="NavbarController as navCtrl">
     <div class="container">
