@@ -25,6 +25,11 @@
         "id": "01219211",
         "name_en": "Software Development Training Camp",
         "name_th": "ค่ายฝึกพัฒนาซอฟต์แวร์"
+      },
+      {
+        "id": "01219215",
+        "name_en": "Computer System Laboratory",
+        "name_th": "ปฏิบัติการระบบคอมพิวเตอร์"
       }
     ]
   }

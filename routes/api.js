@@ -6,6 +6,22 @@ api.get('/', function (req, res) {
   res.json({'key': 'value'})
 })
 
+api.get('/course/all', function (req, res) {
+  var course_file = 'public/json/course_list.json'
+
+  function sortByKey (array, key) {
+    return array.sort(function (a, b) {
+      var x = a[key]
+      var y = b[key]
+      return ((x < y) ? -1 : ((x > y) ? 1 : 0))
+    })
+  }
+
+  jsonfile.readFile(course_file, function (err, course_list) {
+    return res.json(sortByKey(course_list, 'id'))
+  })
+})
+
 api.get('/user/:user_id', function (req, res) {
   var user_id = req.params.user_id
   var user_file = 'public/json/user.json'
