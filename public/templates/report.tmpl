@@ -1,5 +1,9 @@
 <div class="container report-container">
   <h2>Registration Report</h2>
+  <button class="viewJson-btn" type="button" name="button" ng-click="viewJson = !viewJson">View as JSON</button>
+  <div class="well" ng-if="viewJson">
+    <pre>{{reportCtrl.enroll_list}}</pre>
+  </div>
   <div class="panel panel-default">
     <div class="panel-body">
       <table class="table table-striped table-hover" ng-if="reportCtrl.enroll_list.length > 0">
