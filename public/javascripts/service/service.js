@@ -26,7 +26,7 @@ angular.module('ku-regis')
     var self = this
     self.user = {}
 
-    self.initUser = function (){
+    self.initUser = function () {
       $http.get('http://' + location.host + '/api/user/' + $cookies.get('token'))
         .success(function (response) {
           console.log(response)
@@ -45,7 +45,7 @@ angular.module('ku-regis')
     }
 
     self.login = function (username, pwd) {
-      $http.get('https://' + location.host + '/api/user/' + username.slice(1))
+      $http.get('http://' + location.host + '/api/user/' + username.slice(1))
         .success(function (response) {
           console.log(response)
           self.user = response
@@ -65,7 +65,7 @@ angular.module('ku-regis')
     }
 
     // if user still login, then init user data
-    if(self.isLogin()){
+    if (self.isLogin()) {
       self.initUser()
     }
   })
