@@ -221,9 +221,17 @@ ul, ol {
   min-height: 600px;
 }
 
+.web-header{
+  margin: 20px 0px;
+}
+
 .h-service {
     border: 1px solid #eee;
     margin-bottom: 15px;
+}
+
+.h-service h3{
+  margin-top: 5px;
 }
 
 .round-fifty {
