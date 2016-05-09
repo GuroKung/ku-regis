@@ -27,7 +27,7 @@ angular.module('ku-regis')
     self.user = {}
 
     self.initUser = function () {
-      $http.get('http://' + location.host + '/api/user/' + $cookies.get('token'))
+      $http.get('https://' + location.host + '/api/user/' + $cookies.get('token'))
         .success(function (response) {
           console.log(response)
           self.user = response
@@ -45,7 +45,7 @@ angular.module('ku-regis')
     }
 
     self.login = function (username, pwd) {
-      $http.get('http://' + location.host + '/api/user/' + username.slice(1))
+      $http.get('https://' + location.host + '/api/user/' + username.slice(1))
         .success(function (response) {
           console.log(response)
           self.user = response

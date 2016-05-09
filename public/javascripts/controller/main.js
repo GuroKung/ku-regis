@@ -69,7 +69,7 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
     var self = this
     self.course_list = []
 
-    $http.get('http://' + location.host + '/api/course/all')
+    $http.get('https://' + location.host + '/api/course/all')
       .success(function (response) {
         console.log(response)
         self.course_list = response
@@ -93,7 +93,7 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
     self.course_list = []
     self.enroll_list = Course_enroll.enroll_list
 
-    $http.get('http://' + location.host + '/api/course/all')
+    $http.get('https://' + location.host + '/api/course/all')
       .success(function (response) {
         console.log(response)
         self.course_list = response
@@ -125,7 +125,7 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
     }
 
     self.submit = function () {
-      $http.post('http://' + location.host + '/api/enroll', { user_id: Auth.user.id, enroll_list: self.enroll_list })
+      $http.post('https://' + location.host + '/api/enroll', { user_id: Auth.user.id, enroll_list: self.enroll_list })
         .success(function (response) {
           console.log(response)
           $state.transitionTo('report')
