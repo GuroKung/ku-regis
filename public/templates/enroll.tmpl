@@ -53,9 +53,21 @@
           <p>
             Credit: {{enroll_course.credit}}
           </p>
-          <p>
-            Section: 450
-          </p>
+          <div class="row">
+            <div class="col-md-6">
+              <label class="pr-10" for="typeSelect">Type: </label>
+              <select name="typeSelect" class="singleSelect" ng-model="data.type">
+                <option value="{{data.option1}}">Credit</option>
+                <option value="option-2">Audit</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="pr-10" for="typeSelect">Section: </label>
+              <select name="typeSelect" class="singleSelect" ng-model="data.section">
+                <option value="{{data.option1}}">450</option>
+              </select>
+            </div>
+          </div>
         </div>
         <div class="well">
           <b>

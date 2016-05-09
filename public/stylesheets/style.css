@@ -310,3 +310,7 @@ ul, ol {
 	position:relative;
 	top:1px;
 }
+
+.singleSelect{
+  width: 75px;
+}
