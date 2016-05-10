@@ -12,27 +12,33 @@
     "status": "Currently studying",
     "courses": [
       {
-        "id": "01219112",
-        "name_en": "Introduction to Information Technology",
-        "name_th": "เทคโนโลยีสารสนเทศเบื้องต้น",
+        "id": "01219214",
+        "name_en": "Probability and Statistics for Software and Knowledge Engineers",
+        "name_th": "ความน่าจะเป็นและสถิติสำหรับวิศวกรซอฟต์แวร์และความรู้",
         "credit": 3
       },
       {
-        "id": "01219211",
-        "name_en": "Software Development Training Camp",
-        "name_th": "ค่ายฝึกพัฒนาซอฟต์แวร์",
+        "id": "01219212",
+        "name_en": "Abstract Data Types Laboratory",
+        "name_th": "ปฏิบัติการชนิดข้อมูลนามธรรม",
         "credit": 1
       },
       {
-        "id": "01219215",
-        "name_en": "Computer System Laboratory",
-        "name_th": "ปฏิบัติการระบบคอมพิวเตอร์",
-        "credit": 1
+        "id": "01219111",
+        "name_en": "Object-Oriented Programming I",
+        "name_th": "การโปรแกรมเชิงวัตถุ I",
+        "credit": 3
       },
       {
-        "id": "01219213",
-        "name_en": "Communication Skills for Software and Knowledge Engineers",
-        "name_th": "ทักษะการสื่อสารสำหรับวิศวกรซอฟต์แวร์และความรู้",
+        "id": "01219113",
+        "name_en": "Object-Oriented Programming II",
+        "name_th": "การโปรแกรมเชิงวัตถุ II",
+        "credit": 3
+      },
+      {
+        "id": "01219216",
+        "name_en": "Operating Systems for Software and Knowledge Engineers",
+        "name_th": "ระบบปฏิบัติการสำหรับวิศวกรซอฟต์แวร์และความรู้",
         "credit": 3
       }
     ]

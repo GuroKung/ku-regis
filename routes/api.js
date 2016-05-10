@@ -36,6 +36,21 @@ api.get('/user/:user_id', function (req, res) {
   })
 })
 
+api.get('/user/:user_id/courses', function (req, res) {
+  var user_id = req.params.user_id
+  var user_file = 'public/json/user.json'
+  jsonfile.readFile(user_file, function (err, user_list) {
+    // read user data
+    for (var i = 0; i < user_list.length; i++) {
+      if (user_id === user_list[i].id) {
+        return res.json(user_list[i].courses)
+      }
+    }
+    return res.status(404).json({'error': 'user not found'})
+  })
+})
+
+
 api.post('/enroll', function (req, res) {
   res.send('course enrollment recived')
   console.log(req.body)

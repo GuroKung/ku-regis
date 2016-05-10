@@ -167,11 +167,19 @@ angular.module('ku-regis', ['ui.router', 'ngCookies'])
       })
   })
 
-  .controller('ReportController', function (Course_enroll) {
+  .controller('ReportController', function ($http, Auth) {
     var self = this
 
-    self.enroll_list = Course_enroll.enroll_list
-    console.log(self.enroll_list)
+    self.enroll_list = []
+
+    $http.get(window.location.protocol+'//' + location.host + '/api/user/' + Auth.user.id + '/courses')
+      .success(function (response) {
+        console.log(response)
+        self.enroll_list = response
+      })
+      .error(function (response) {
+        console.log('error: cannot get course enrollment data from server')
+      })
 
     self.getTotalCredits = function () {
       var total = 0
